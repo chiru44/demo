@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +15,7 @@ import com.example.demo.model.Student;
 @CrossOrigin
 public class DemoApplication implements CommandLineRunner {
 
+	private static final Logger logger = LogManager.getLogger(DemoApplication.class);
 	@Autowired
 	private StudentRepository studentRepo;
 	
@@ -27,6 +30,7 @@ public class DemoApplication implements CommandLineRunner {
 		Student s2 = new Student(102, "Bharath", "Class 9", "chittoor");
 		studentRepo.save(s1);
 		studentRepo.save(s2);
+		logger.info("two records saved successfully");
 	}
 
 	
